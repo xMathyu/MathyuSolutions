@@ -17,7 +17,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const params = useParams();
-  const locale = params?.locale as string || "default-locale";
+  const locale = (params?.locale as string) || "default-locale";
   const t = useTranslations("LandingPage.Section.Navbar");
 
   const navLinks: { href: string; label: string }[] = t.raw("NavItems") as {
@@ -74,7 +74,7 @@ export function Navbar() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={href}
-                      className="hover:bg-green-500/20 px-2 md:text-base md:px-0 lg:px-2 py-1 rounded"
+                      className="hover:bg-[#212121] px-2 md:text-base md:px-0 lg:px-2 py-1 rounded"
                     >
                       {label}
                     </Link>
@@ -85,7 +85,6 @@ export function Navbar() {
           </NavigationMenu>
         </div>
         <LanguageSwitcher />
-        {/* Mobile menu button */}
         <button
           className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -98,7 +97,6 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -107,7 +105,7 @@ export function Navbar() {
           className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-4 z-50"
         >
           {renderMobileNavLinks(
-            "text-green-700 hover:bg-green-50 w-full text-center py-2"
+            "text-[#212121] hover:bg-[#212121]/10 w-full text-center py-2"
           )}
         </motion.div>
       )}
