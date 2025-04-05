@@ -12,7 +12,7 @@ const AboutUs = () => {
     { name: "Mathyu Cardozo", role: "CEO", avatar: "/avatars/MC.webp" },
     {
       name: "Aldair Chuman",
-      role: "CTO - BS - Full Stack Developer - DIOSITO",
+      role: "CTO",
       avatar: "/avatars/AC.webp",
     },
 
