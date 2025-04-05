@@ -10,16 +10,20 @@ const AboutUs = () => {
 
   const teamMembers = [
     { name: "Mathyu Cardozo", role: "CEO", avatar: "/avatars/MC.webp" },
-    { name: "Aldair Chuman", role: "Developer", avatar: "/avatars/AC.webp" },
+    {
+      name: "Aldair Chuman",
+      role: "CTO - BS - Full Stack Developer - DIOSITO",
+      avatar: "/avatars/AC.webp",
+    },
 
     {
       name: "Patrick Cuentas",
-      role: "Developer",
+      role: "Technical Leader",
       avatar: "/avatars/PC.webp",
     },
     {
       name: "Andrés Torres",
-      role: "Developer",
+      role: "Full Stack Developer",
       avatar: "/avatars/AT.webp",
     },
   ];

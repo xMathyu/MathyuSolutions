@@ -58,8 +58,8 @@ export function Navbar() {
           <div className="relative h-full w-32">
             <Image
               className="p-1"
-              src="/logos/logos_pequeno.svg"
-              alt="Logo Parco dei Colori"
+              src="/logos/logo.svg"
+              alt="Logo Mathyu's,s Solutions"
               fill
               style={{ objectFit: "contain" }}
             />

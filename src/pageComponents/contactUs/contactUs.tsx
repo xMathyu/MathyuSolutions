@@ -65,16 +65,10 @@ const ContactUs = () => {
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert(t("Form.SuccessMessage"));
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          alert(t("Form.ErrorMessage"));
-        }
-      );
+      .then((error) => {
+        console.error("FAILED...", error);
+        alert(t("Form.ErrorMessage"));
+      });
   };
 
   return (

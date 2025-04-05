@@ -63,6 +63,10 @@
           "MessageRequired": "El mensaje es obligatorio."
         }
       },
+      "Projects": {
+        "Title": "Nuestros Proyectos",
+        "VisitProject": "Visitar Proyecto"
+      },
       "Footer": {
         "Title": "Mathyu's Solutions",
         "Subtitle": "Mathyu's Solutions es una empresa de desarrollo de software que se especializa en crear soluciones innovadoras y eficientes para negocios.",
