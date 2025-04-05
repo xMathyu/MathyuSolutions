@@ -6,7 +6,7 @@ const HeroSection = () => {
   const t = useTranslations("LandingPage.Section.Hero");
 
   return (
-    <div className="bg-[#212121] min-h-screen flex items-center px-4 sm:px-6 md:px-8 lg:px-12">
+    <div className="bg-[#212121] min-h-[80vh] flex items-center px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="max-w-7xl w-full mx-auto py-16 flex flex-col lg:flex-row justify-between items-center">
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-[#CFCFCF] leading-tight">

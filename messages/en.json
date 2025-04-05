@@ -39,7 +39,29 @@
         "OurMissionTitle": "Our Mission",
         "OurMissionDescription": "Our mission is simple: to provide businesses with powerful, easy-to-use solutions that drive success. We are here to simplify technology, remove barriers, and help you make a lasting impact in your industry.",
         "TeamTitle": "Meet Our Team"
-
+      },
+      "ContactUs": {
+        "Title": "Contact Us",
+        "Description": "We’d love to hear from you! Feel free to reach out to us for any inquiries or support.",
+        "ContactDetails": "Contact Details",
+        "Phone": "Phone",
+        "Email": "Email",
+        "Form": {
+          "Title": "Send us a message",
+          "FirstName": "First Name",
+          "LastName": "Last Name",
+          "Email": "Email",
+          "Subject": "Subject",
+          "Message": "Message",
+          "Button": "Send Message"
+        },
+        "Errors": {
+          "FirstNameRequired": "First name is required.",
+          "LastNameRequired": "Last name is required.",
+          "InvalidEmail": "Invalid email address.",
+          "SubjectRequired": "Subject is required.",
+          "MessageRequired": "Message is required."
+        }
       }
     }
   }

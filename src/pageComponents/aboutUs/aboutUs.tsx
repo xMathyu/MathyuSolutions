@@ -9,32 +9,37 @@ const AboutUs = () => {
   const t = useTranslations("LandingPage.Section.AboutUs");
 
   const teamMembers = [
-    { name: "Mathyu Cardozo", role: "CEO", avatar: "/avatars/person.jpg" },
-    { name: "Aldair Chuman", role: "Developer", avatar: "/avatars/be.webp" },
+    { name: "Mathyu Cardozo", role: "CEO", avatar: "/avatars/MC.webp" },
+    { name: "Aldair Chuman", role: "Developer", avatar: "/avatars/AC.webp" },
+
     {
       name: "Patrick Cuentas",
       role: "Developer",
-      avatar: "/avatars/person.jpg",
+      avatar: "/avatars/PC.webp",
+    },
+    {
+      name: "Andrés Torres",
+      role: "Developer",
+      avatar: "/avatars/AT.webp",
     },
   ];
 
   return (
     <section className="bg-[#F5F5F5] py-16 px-4 text-center">
-      {/* About Us Section */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto mb-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-[#212121] leading-tight">
           {t("Title")}
         </h1>
         <p className="text-base text-[#555555] mb-8">{t("SubTitle")}</p>
       </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-4 text-center lg:text-left">
-        <div className="lg:w-1/2">
+        <div className="lg:w-2/5 mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-[#212121] mb-4">
             {t("OurStoryTitle")}
           </h2>
           <p className="text-base text-[#555555]">{t("OurStoryDescription")}</p>
         </div>
-        <div className="lg:w-1/2">
+        <div className="lg:w-2/5 mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-[#212121] mb-4">
             {t("OurMissionTitle")}
           </h2>
@@ -44,7 +49,6 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Carousel Section */}
       <div className="mt-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-[#212121] mb-8">
           {t("TeamTitle")}
@@ -63,16 +67,19 @@ const AboutUs = () => {
               key={index}
               className="flex flex-col items-center justify-center text-center"
             >
-              {/* Avatar */}
-              <Avatar className="w-60 h-60 mb-4 flex items-center justify-center mx-auto">
-                <AvatarImage src={member.avatar} alt={member.name} />
+              <Avatar className="w-60 h-60 mb-4 flex items-center justify-center mx-auto overflow-hidden">
+                <AvatarImage
+                  src={member.avatar}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
                 <AvatarFallback className="text-3xl font-bold">
                   {member.name.charAt(0)}
                 </AvatarFallback>
               </Avatar>
-              {/* Name */}
-              <h3 className="text-lg font-bold text-[#212121] mt-2">{member.name}</h3>
-              {/* Role */}
+              <h3 className="text-lg font-bold text-[#212121] mt-2">
+                {member.name}
+              </h3>
               <p className="text-sm text-[#555555]">{member.role}</p>
             </SwiperSlide>
           ))}

@@ -39,6 +39,29 @@
         "OurMissionTitle": "Nuestra Misión",
         "OurMissionDescription": "Nuestra misión es clara: ofrecer soluciones poderosas y fáciles de usar que impulsen el éxito de los negocios. Estamos aquí para simplificar la tecnología, eliminar barreras y ayudarte a dejar huella en tu industria.",
         "TeamTitle": "Conoce a Nuestro Equipo"
+      },
+      "ContactUs": {
+        "Title": "Contáctanos",
+        "Description": "¡Nos encantaría saber de ti! No dudes en comunicarte con nosotros para cualquier consulta o soporte.",
+        "ContactDetails": "Detalles de Contacto",
+        "Phone": "Teléfono",
+        "Email": "Correo Electrónico",
+        "Form": {
+          "Title": "Envíanos un mensaje",
+          "FirstName": "Nombre",
+          "LastName": "Apellido",
+          "Email": "Correo Electrónico",
+          "Subject": "Asunto",
+          "Message": "Mensaje",
+          "Button": "Enviar Mensaje"
+        },
+        "Errors": {
+          "FirstNameRequired": "El nombre es obligatorio.",
+          "LastNameRequired": "El apellido es obligatorio.",
+          "InvalidEmail": "Correo electrónico no válido.",
+          "SubjectRequired": "El asunto es obligatorio.",
+          "MessageRequired": "El mensaje es obligatorio."
+        }
       }
     }
   }
