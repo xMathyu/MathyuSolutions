@@ -32,6 +32,7 @@
         "ImageAlt": "Pila Tecnológica"
       },
       "AboutUs": {
+        "Badge": "Nuestro Viaje",
         "Title": "Sobre Nosotros",
         "SubTitle": "En Mathyu Solutions, nos apasiona ofrecer soluciones innovadoras para ayudar a las empresas a prosperar en la era digital. Nuestro equipo está dedicado a la excelencia y la creatividad.",
         "OurStoryTitle": "Nuestra Historia",
@@ -41,11 +42,22 @@
         "TeamTitle": "Conoce a Nuestro Equipo"
       },
       "ContactUs": {
+        "Badge": "Contáctanos",
         "Title": "Contáctanos",
         "Description": "¡Nos encantaría saber de ti! No dudes en comunicarte con nosotros para cualquier consulta o soporte.",
         "ContactDetails": "Detalles de Contacto",
         "Phone": "Teléfono",
         "Email": "Correo Electrónico",
+        "Address": "Dirección",
+        "WorkingHours": "Horario de Atención",
+        "WhyChooseUs": {
+          "Title": "¿Por Qué Elegirnos?",
+          "Reasons": {
+            "Reason1": "Soporte 24/7 - Siempre estamos aquí para ayudarte",
+            "Reason2": "Respuesta Rápida - Obtén respuestas en menos de 24 horas",
+            "Reason3": "Equipo Experto - Asistencia profesional de nuestros especialistas"
+          }
+        },
         "Form": {
           "Title": "Envíanos un mensaje",
           "FirstName": "Nombre",
@@ -64,13 +76,36 @@
         }
       },
       "Projects": {
+        "Badge": "Nuestro Trabajo",
         "Title": "Nuestros Proyectos",
+        "SubTitle": "Explora nuestro portafolio de soluciones innovadoras que demuestran nuestra experiencia y compromiso con la excelencia.",
         "VisitProject": "Visitar Proyecto"
       },
       "Footer": {
-        "Title": "Mathyu's Solutions",
-        "Subtitle": "Mathyu's Solutions es una empresa de desarrollo de software que se especializa en crear soluciones innovadoras y eficientes para negocios.",
-        "Copyright": "Mathyu's Solutions. Todos los derechos reservados."
+        "Title": "Mathyu Solutions",
+        "Subtitle": "Transformando ideas en soluciones digitales innovadoras. Tu socio tecnológico de confianza para desarrollo web y móvil.",
+        "Copyright": "Mathyu Solutions. Todos los derechos reservados.",
+        "QuickLinks": {
+          "Title": "Enlaces Rápidos",
+          "Home": "Inicio",
+          "AboutUs": "Nosotros",
+          "Services": "Servicios",
+          "Projects": "Proyectos",
+          "Contact": "Contacto"
+        },
+        "Services": {
+          "Title": "Nuestros Servicios",
+          "WebDevelopment": "Desarrollo Web",
+          "MobileApps": "Aplicaciones Móviles",
+          "CloudSolutions": "Soluciones Cloud",
+          "Consulting": "Consultoría IT"
+        },
+        "Newsletter": {
+          "Title": "Boletín Informativo",
+          "Description": "Suscríbete a nuestro boletín para recibir las últimas actualizaciones y novedades.",
+          "EmailPlaceholder": "Ingresa tu correo",
+          "SubscribeButton": "Suscribirse"
+        }
       }
     }
   }
