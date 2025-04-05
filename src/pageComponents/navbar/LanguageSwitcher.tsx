@@ -12,15 +12,14 @@ export function LanguageSwitcher() {
     { code: "es", label: "ESP", flag: "/flags/spain.svg" },
   ];
 
-  const currentLocale = pathname.split("/")[1];
+  const currentLocale = pathname ? pathname.split("/")[1] : "";
   const nextLanguage =
     languages.find((lang) => lang.code !== currentLocale) || languages[0];
 
   const switchLanguage = () => {
-    const newPath = pathname.replace(
-      `/${currentLocale}`,
-      `/${nextLanguage.code}`
-    );
+    const newPath = pathname
+      ? pathname.replace(`/${currentLocale}`, `/${nextLanguage.code}`)
+      : `/${nextLanguage.code}`;
     router.push(newPath);
   };
 

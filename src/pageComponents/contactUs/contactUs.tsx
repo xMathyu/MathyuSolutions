@@ -41,7 +41,15 @@ const ContactUs = () => {
     },
   });
 
-  const onSubmit = (data: any) => {
+  type FormData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    subject: string;
+    message: string;
+  };
+
+  const onSubmit = (data: FormData) => {
     const templateParams = {
       firstName: data.firstName,
       lastName: data.lastName,

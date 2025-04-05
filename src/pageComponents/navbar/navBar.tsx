@@ -17,7 +17,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const params = useParams();
-  const locale = params.locale as string;
+  const locale = params?.locale as string || "default-locale";
   const t = useTranslations("LandingPage.Section.Navbar");
 
   const navLinks: { href: string; label: string }[] = t.raw("NavItems") as {
