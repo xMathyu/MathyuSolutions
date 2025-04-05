@@ -1,0 +1,45 @@
+{
+  "LandingPage": {
+    "Section": {
+      "Navbar": {
+        "NavItems": [
+          {
+            "href": "/#hero",
+            "label": "Inicio"
+          },
+          {
+            "href": "/#about",
+            "label": "Nosotros"
+          },
+          {
+            "href": "/#project",
+            "label": "Proyectos"
+          },
+          {
+            "href": "/#contact",
+            "label": "Contacto"
+          }
+        ],
+        "AccessLogin": "Accedi / Registratti",
+        "Greeting": "Ciao"
+      },
+      "Hero": {
+        "TitleOne": "Convierte tu idea en realidad",
+        "TitleTwo": "rápido y fácil",
+        "Description": "Olvídate de configuraciones complicadas y enfócate en hacer crecer tu proyecto. 🚀 Mathyu's Solutions te ayuda a lanzar tu sitio web, aplicación o negocio en línea sin complicaciones—sin dolores de cabeza, sin costos ocultos, solo crea y avanza.",
+        "Button": "Empieza Ya",
+        "ButtonLink": "https://github.com/idee8/shipfree",
+        "ImageAlt": "Pila Tecnológica"
+      },
+      "AboutUs": {
+        "Title": "Sobre Nosotros",
+        "SubTitle": "En Mathyu Solutions, nos apasiona ofrecer soluciones innovadoras para ayudar a las empresas a prosperar en la era digital. Nuestro equipo está dedicado a la excelencia y la creatividad.",
+        "OurStoryTitle": "Nuestra Historia",
+        "OurStoryDescription": "Mathyu's Solutions nació con una visión: empoderar a los negocios con soluciones digitales inteligentes, efectivas y sin complicaciones. Desde el primer día, nuestro camino ha estado marcado por la innovación, la superación de límites y la entrega de valor real a quienes confían en nosotros.",
+        "OurMissionTitle": "Nuestra Misión",
+        "OurMissionDescription": "Nuestra misión es clara: ofrecer soluciones poderosas y fáciles de usar que impulsen el éxito de los negocios. Estamos aquí para simplificar la tecnología, eliminar barreras y ayudarte a dejar huella en tu industria.",
+        "TeamTitle": "Conoce a Nuestro Equipo"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "LandingPage": {
+    "Section": {
+      "Navbar": {
+        "NavItems": [
+          {
+            "href": "/#hero",
+            "label": "Home"
+          },
+          {
+            "href": "/#about",
+            "label": "About Us"
+          },
+          {
+            "href": "/#project",
+            "label": "Projects"
+          },
+          {
+            "href": "/#contact",
+            "label": "Contact"
+          }
+        ],
+        "AccessLogin": "Sign In / Register",
+        "Greeting": "Hi"
+      },
+      "Hero": {
+        "TitleOne": "Turn your idea into reality",
+        "TitleTwo": "fast!",
+        "Description": "Forget the complicated setups—focus on making your project a success! 🚀 Mathyu's Solutions helps you launch your website, app, or online business quickly and effortlessly—no tech headaches, no hidden costs, just build and grow.",
+        "Button": "Get Start Now",
+        "ButtonLink": "https://github.com/idee8/shipfree",
+        "ImageAlt": "Tech Stack"
+      },
+      "AboutUs": {
+        "Title": "About Us",
+        "SubTitle": "At Mathyu Solutions, we are passionate about delivering innovative solutions to help businesses thrive in the digital age. Our team is dedicated to excellence and creativity.",
+        "OurStoryTitle": "Our Story",
+        "OurStoryDescription": "Mathyu's Solutions was born from a vision: to empower businesses with smart, effective, and hassle-free digital solutions. From day one, our journey has been about pushing boundaries, embracing innovation, and delivering real value to those we serve.",
+        "OurMissionTitle": "Our Mission",
+        "OurMissionDescription": "Our mission is simple: to provide businesses with powerful, easy-to-use solutions that drive success. We are here to simplify technology, remove barriers, and help you make a lasting impact in your industry.",
+        "TeamTitle": "Meet Our Team"
+
+      }
+    }
+  }
+}
