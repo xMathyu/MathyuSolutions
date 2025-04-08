@@ -103,7 +103,10 @@ const ContactUs = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden py-16 sm:py-24">
+    <section
+      id="contact"
+      className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden py-16 sm:py-24"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} relative`}
