@@ -45,9 +45,9 @@ export function Navbar() {
       if (element) {
         setMobileMenuOpen(false);
 
-        element.scrollIntoView({
+        window.scrollTo({
+          top: element.offsetTop,
           behavior: "smooth",
-          block: "start",
         });
       }
     }
