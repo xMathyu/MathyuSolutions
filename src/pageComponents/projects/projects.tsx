@@ -105,7 +105,10 @@ export default function Projects() {
   const t = useTranslations("LandingPage.Section.Projects");
 
   return (
-    <section className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+    <section
+      id="project"
+      className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} relative`}
