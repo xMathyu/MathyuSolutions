@@ -26,7 +26,7 @@ export function LanguageSwitcher() {
   return (
     <button
       onClick={switchLanguage}
-      className="group flex items-center gap-2 rounded-lg bg-white px-3.5 py-2 text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-50 hover:shadow border border-gray-200"
+      className="group flex items-center gap-2 rounded-lg bg-white px-3.5 py-2 text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-50 hover:shadow border border-gray-200 hover:cursor-pointer"
     >
       <div className="relative h-5 w-5 overflow-hidden rounded-sm">
         <Image
