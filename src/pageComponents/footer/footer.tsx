@@ -237,10 +237,10 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top Button with Adaptive Background */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all z-50 group"
+        className="fixed bottom-8 right-8 p-2 rounded-full bg-blue-500/80 dark:bg-gray-700/80 backdrop-blur-sm border border-white/20 text-white shadow-lg transition-all z-50 group"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
