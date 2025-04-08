@@ -11,13 +11,14 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { theme } from "@/styles/theme";
 
 export function Navbar() {
   const params = useParams();
+  const pathname = usePathname();
   const locale = (params?.locale as string) || "default-locale";
   const t = useTranslations("LandingPage.Section.Navbar");
 
@@ -31,6 +32,26 @@ export function Navbar() {
     href: `/${locale}${link.href}`,
   }));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.includes("#") && pathname.includes(href.split("#")[0])) {
+      e.preventDefault();
+      const targetId = href.split("#")[1];
+      const element = document.getElementById(targetId) as HTMLElement | null;
+
+      if (element) {
+        setMobileMenuOpen(false);
+
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
 
   return (
     <motion.nav
@@ -64,6 +85,7 @@ export function Navbar() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={href}
+                      onClick={(e) => handleNavigation(e, href)}
                       className="hover:bg-white/10 px-4 py-2 rounded-lg transition-colors duration-200"
                     >
                       {label}
@@ -105,7 +127,7 @@ export function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavigation(e, href)}
                   className="text-[#212121] hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors duration-200"
                 >
                   {label}
