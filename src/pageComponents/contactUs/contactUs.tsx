@@ -136,17 +136,17 @@ const ContactUs = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="flex flex-col gap-8 h-full"
           >
-            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
+            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm flex-1">
               <h2
-                className={`${theme.typography.heading.small} text-[#212121] mb-6 flex items-center gap-2`}
+                className={`${theme.typography.heading.small} text-[#212121]  flex items-center gap-2`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("ContactDetails")}
@@ -198,9 +198,9 @@ const ContactUs = () => {
               </div>
             </Card>
 
-            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
+            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm flex-1">
               <h2
-                className={`${theme.typography.heading.small} text-[#212121] mb-6 flex items-center gap-2`}
+                className={`${theme.typography.heading.small} text-[#212121]  flex items-center gap-2`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("WhyChooseUs.Title")}
@@ -236,9 +236,9 @@ const ContactUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-start justify-center lg:sticky lg:top-24"
+            className="flex items-start justify-center lg:sticky lg:top-24 "
           >
-            <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+            <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm h-full">
               <CardHeader className="border-b px-6 py-5">
                 <CardTitle
                   className={`${theme.typography.heading.small} text-[#212121] flex items-center gap-2`}
@@ -247,7 +247,7 @@ const ContactUs = () => {
                   {t("Form.Title")}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-6">
+              <CardContent className="flex items-center justify-center g p-6 space-y-6 h-full ">
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
