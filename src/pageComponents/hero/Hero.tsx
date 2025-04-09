@@ -10,7 +10,7 @@ function HeroSection() {
   const t = useTranslations("LandingPage.Section.Hero");
 
   return (
-    <div className="bg-gradient-to-br from-[#212121] to-[#2b80e0] min-h-[90vh] flex items-center">
+    <div className="bg-gradient-to-br from-[#212121] to-[#2b80e0] min-h-[100dvh] flex items-center">
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} flex flex-col lg:flex-row justify-between items-center gap-12`}
       >
