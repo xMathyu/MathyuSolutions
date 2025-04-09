@@ -55,7 +55,10 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section
+      id="about"
+      className="bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} relative`}
