@@ -136,13 +136,13 @@ const ContactUs = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-0 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-8 h-full"
+            className="flex flex-col gap-5 h-full"
           >
             <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm flex-1">
               <h2
