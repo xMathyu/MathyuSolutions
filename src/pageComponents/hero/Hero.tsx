@@ -36,8 +36,7 @@ function HeroSection() {
           </p>
 
           <Link
-            href={t("ButtonLink")}
-            target="_blank"
+            href="/#contact"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-[#FFBE1A] hover:bg-yellow-500 text-black px-8 py-4 rounded-xl font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
