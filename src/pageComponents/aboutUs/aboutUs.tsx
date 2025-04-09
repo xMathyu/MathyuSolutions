@@ -39,6 +39,12 @@ const AboutUs = () => {
       avatar: "/avatars/AT.webp",
       bio: "Full-stack specialist with expertise in modern web technologies",
     },
+    {
+      name: "Fabrizio Sanchez",
+      role: "Full Stack Developer",
+      avatar: "/avatars/FS.webp",
+      bio: "Software developer with experience in frontend and backend technologies",
+    },
   ];
 
   const stats = [
