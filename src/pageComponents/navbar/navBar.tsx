@@ -63,10 +63,10 @@ export function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="h-16 shadow-lg bg-gradient-to-r from-[#2be0cc] via-[#2b80e0] to-[#4a2de1] relative"
+      className="h-16 shadow-lg bg-gradient-to-r from-[#2be0cc] via-[#2b80e0] to-[#4a2de1]  fixed  w-full z-50"
     >
       <div
-        className={`${theme.spacing.container} h-full flex items-center justify-between px-4`}
+        className={`${theme.spacing.container}   h-full flex items-center justify-between px-4 `}
       >
         {/* Logo */}
         <Link href={`/${locale}/#hero`} className="h-full flex items-center">
@@ -104,7 +104,7 @@ export function Navbar() {
 
         <div className="flex items-center space-x-4">
           <LanguageSwitcher />
-          <div className="flex items-center space-x-2 text-black">
+          <div className="flex items-center space-x-2 text-white">
             <Sun className="h-[1.2rem] w-[1.2rem]" />
             <Switch
               className="data-[state=checked]:bg-sky-300 data-[state=unchecked]:bg-sky-300"

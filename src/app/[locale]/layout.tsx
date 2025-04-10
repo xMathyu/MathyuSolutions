@@ -31,7 +31,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${poppins.variable} bg-red-50`}>
+      <body className={`${poppins.variable}`}>
         <ThemeProvider attribute="class">
           <NextIntlClientProvider>
             <Navbar />
