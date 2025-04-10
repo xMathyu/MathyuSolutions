@@ -57,9 +57,9 @@ const AboutUs = () => {
   return (
     <section
       id="about"
-      className="bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
+      className="bg-gradient-to-br from-red-50 via-white to-gray-50 dark:from-[#1f1f1f] dark:via-[#1f1f1f] dark:to-[#1f1f1f] relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} relative`}
       >
@@ -70,16 +70,19 @@ const AboutUs = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="mb-4 px-4 py-1 text-sm">
+          <Badge
+            variant="outline"
+            className="mb-4 px-4 py-1 text-sm dark:border-white/10 dark:text-white"
+          >
             {t("Badge")}
           </Badge>
           <h1
-            className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1]`}
+            className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1] `}
           >
             {t("Title")}
           </h1>
           <p
-            className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto`}
+            className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto dark:text-neutral-300`}
           >
             {t("SubTitle")}
           </p>
@@ -98,7 +101,9 @@ const AboutUs = () => {
               <div className="text-4xl font-bold text-[#2b80e0] mb-2">
                 {stat.number}
               </div>
-              <div className="text-sm text-[#555555]">{stat.label}</div>
+              <div className="text-sm text-[#555555] dark:text-neutral-300">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -111,14 +116,16 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <Card className="p-8 h-full hover:shadow-lg transition-shadow duration-300">
+            <Card className="p-8 h-full hover:shadow-lg transition-shadow duration-300  dark:text-white">
               <h2
-                className={`${theme.typography.heading.medium} text-[#212121] mb-4 flex items-center gap-2`}
+                className={`${theme.typography.heading.medium} text-[#212121] mb-4 flex items-center gap-2 dark:text-white`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("OurStoryTitle")}
               </h2>
-              <p className={`${theme.typography.body.DEFAULT} text-[#555555]`}>
+              <p
+                className={`${theme.typography.body.DEFAULT} text-[#555555] dark:text-neutral-300`}
+              >
                 {t("OurStoryDescription")}
               </p>
             </Card>
@@ -131,14 +138,16 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <Card className="p-8 h-full hover:shadow-lg transition-shadow duration-300">
+            <Card className="p-8 h-full hover:shadow-lg transition-shadow duration-300  dark:text-white">
               <h2
-                className={`${theme.typography.heading.medium} text-[#212121] mb-4 flex items-center gap-2`}
+                className={`${theme.typography.heading.medium} text-[#212121] mb-4 flex items-center gap-2 dark:text-white`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("OurMissionTitle")}
               </h2>
-              <p className={`${theme.typography.body.DEFAULT} text-[#555555]`}>
+              <p
+                className={`${theme.typography.body.DEFAULT} text-[#555555] dark:text-neutral-300`}
+              >
                 {t("OurMissionDescription")}
               </p>
             </Card>
@@ -152,7 +161,7 @@ const AboutUs = () => {
           viewport={{ once: true }}
         >
           <h2
-            className={`${theme.typography.heading.medium} text-center text-[#212121] mb-12`}
+            className={`${theme.typography.heading.medium} text-center text-[#212121] mb-12 dark:text-white`}
           >
             {t("TeamTitle")}
           </h2>
@@ -165,7 +174,7 @@ const AboutUs = () => {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="max-w-5xl mx-auto pb-12"
+            className="max-w-5xl mx-auto pb-12 "
           >
             {teamMembers.map((member, index) => (
               <SwiperSlide key={index}>
@@ -184,7 +193,7 @@ const AboutUs = () => {
                           alt={member.name}
                           className="w-full h-full object-cover"
                         />
-                        <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-[#2be0cc] to-[#4a2de1] text-white">
+                        <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-[#2be0cc] to-[#4a2de1] text-white dark:text-white">
                           {member.name.charAt(0)}
                         </AvatarFallback>
                       </Avatar>
@@ -195,12 +204,12 @@ const AboutUs = () => {
                       </div>
                     </div>
                     <h3
-                      className={`${theme.typography.heading.small} text-[#212121] mb-2`}
+                      className={`${theme.typography.heading.small} text-[#212121] mb-2 dark:text-white`}
                     >
                       {member.name}
                     </h3>
                     <p
-                      className={`${theme.typography.body.small} text-[#555555] mb-4`}
+                      className={`${theme.typography.body.small} text-[#555555] mb-4 dark:text-neutral-300`}
                     >
                       {member.bio}
                     </p>

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { poppins } from "./fonts";
 import "./globals.css";
 
+import "@radix-ui/themes/styles.css";
+import { ThemeProvider } from "@/components/theme-provider";
+
 // NEXT-INTL SETUP
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -27,11 +30,13 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang={locale}>
-      <body className={`${poppins.variable} bg-gray-50`}>
-        <NextIntlClientProvider>
-          <Navbar />
-        </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`${poppins.variable} bg-red-50`}>
+        <ThemeProvider attribute="class">
+          <NextIntlClientProvider>
+            <Navbar />
+          </NextIntlClientProvider>
+        </ThemeProvider>
 
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

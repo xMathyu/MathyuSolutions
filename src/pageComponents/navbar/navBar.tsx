@@ -11,12 +11,17 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import { Switch } from "@/components/ui/switch";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
 import { useParams, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { theme } from "@/styles/theme";
 
 export function Navbar() {
+  const { setTheme } = useTheme();
   const params = useParams();
   const pathname = usePathname();
   const locale = (params?.locale as string) || "default-locale";
@@ -99,6 +104,17 @@ export function Navbar() {
 
         <div className="flex items-center space-x-4">
           <LanguageSwitcher />
+          <div className="flex items-center space-x-2 text-black">
+            <Sun className="h-[1.2rem] w-[1.2rem]" />
+            <Switch
+              className="data-[state=checked]:bg-sky-300 data-[state=unchecked]:bg-sky-300"
+              onCheckedChange={(checked) =>
+                setTheme(checked ? "dark" : "light")
+              }
+            />
+            <Moon className="h-[1.2rem] w-[1.2rem]" />
+          </div>
+
           <button
             className="md:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
