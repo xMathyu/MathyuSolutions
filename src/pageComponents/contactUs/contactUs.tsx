@@ -105,7 +105,7 @@ const ContactUs = () => {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden py-16 sm:py-24"
+      className="bg-gradient-to-br from-white via-gray-50 to-white dark:from-[#1f1f1f] dark:via-[#1f1f1f] dark:to-[#1f1f1f] relative overflow-hidden py-16 sm:py-24"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
@@ -130,7 +130,7 @@ const ContactUs = () => {
             {t("Title")}
           </h1>
           <p
-            className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto`}
+            className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto dark:text-neutral-300`}
           >
             {t("Description")}
           </p>
@@ -144,9 +144,9 @@ const ContactUs = () => {
             viewport={{ once: true }}
             className="flex flex-col gap-8 h-full"
           >
-            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm flex-1">
+            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300   backdrop-blur-sm flex-1">
               <h2
-                className={`${theme.typography.heading.small} text-[#212121]  flex items-center gap-2`}
+                className={`${theme.typography.heading.small} text-[#212121]   flex items-center gap-2 dark:text-white`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("ContactDetails")}
@@ -159,14 +159,14 @@ const ContactUs = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 border border-transparent hover:border-gray-100"
+                    className="group p-3 rounded-lg hover:bg-gray-50 hover:dark:bg-[#1e1e1e] transition-all duration-200 border border-transparent hover:border-gray-100"
                   >
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors shrink-0">
                         {info.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-base font-semibold text-[#212121] mb-0.5">
+                        <h3 className="text-base font-semibold text-[#212121] dark:text-white mb-0.5">
                           {info.title}
                         </h3>
                         {info.link ? (
@@ -182,12 +182,12 @@ const ContactUs = () => {
                                 ? "noopener noreferrer"
                                 : undefined
                             }
-                            className="text-sm text-[#555555] hover:text-[#2b80e0] transition-colors block break-words"
+                            className="text-sm text-[#555555]  dark:text-neutral-400  hover:text-[#2b80e0] dark:hover:text-[#2b80e0]   transition-colors block break-words"
                           >
                             {info.content}
                           </a>
                         ) : (
-                          <p className="text-sm text-[#555555] break-words">
+                          <p className="text-sm text-[#555555] break-words dark:text-neutral-400 ">
                             {info.content}
                           </p>
                         )}
@@ -198,14 +198,14 @@ const ContactUs = () => {
               </div>
             </Card>
 
-            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm flex-1">
+            <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300  backdrop-blur-sm flex-1">
               <h2
-                className={`${theme.typography.heading.small} text-[#212121]  flex items-center gap-2`}
+                className={`${theme.typography.heading.small} text-[#212121] dark:text-white  flex items-center gap-2`}
               >
                 <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                 {t("WhyChooseUs.Title")}
               </h2>
-              <ul className="space-y-4">
+              <ul className="space-y-4   ">
                 {[
                   t("WhyChooseUs.Reasons.Reason1"),
                   t("WhyChooseUs.Reasons.Reason2"),
@@ -217,11 +217,11 @@ const ContactUs = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-start gap-3 group p-3 rounded-lg hover:bg-gray-50 transition-all duration-200"
+                    className="flex items-start gap-3 group p-3 rounded-lg  hover:bg-gray-50 hover:dark:bg-[#1e1e1e]  transition-all duration-200"
                   >
-                    <div className="w-2 h-2 rounded-full bg-[#2b80e0] mt-2 group-hover:scale-125 transition-transform"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#2b80e0] mt-2 group-hover:scale-125  transition-transform"></div>
                     <p
-                      className={`${theme.typography.body.DEFAULT} text-[#555555] group-hover:text-[#212121] transition-colors`}
+                      className={`${theme.typography.body.DEFAULT} text-[#555555] dark:text-neutral-400 group-hover:text-[#212121]   transition-colors`}
                     >
                       {reason}
                     </p>
@@ -238,10 +238,10 @@ const ContactUs = () => {
             viewport={{ once: true }}
             className="flex items-start justify-center lg:sticky lg:top-24 "
           >
-            <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm h-full">
+            <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-all duration-300  backdrop-blur-sm h-full">
               <CardHeader className="border-b px-6 py-5">
                 <CardTitle
-                  className={`${theme.typography.heading.small} text-[#212121] flex items-center gap-2`}
+                  className={`${theme.typography.heading.small} text-[#212121] dark:text-white flex items-center gap-2`}
                 >
                   <span className="w-1 h-6 bg-[#2b80e0] rounded-full"></span>
                   {t("Form.Title")}
@@ -259,14 +259,14 @@ const ContactUs = () => {
                         name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#212121] mb-2 block">
+                            <FormLabel className="text-[#212121] dark:text-white mb-2 block">
                               {t("Form.FirstName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder={t("Form.FirstName")}
                                 {...field}
-                                className="focus:ring-[#2b80e0] bg-white h-11"
+                                className="focus:ring-[#2b80e0] bg-white h-11 dark:text-white"
                               />
                             </FormControl>
                             <FormMessage />
@@ -278,14 +278,14 @@ const ContactUs = () => {
                         name="lastName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[#212121] mb-2 block">
+                            <FormLabel className="text-[#212121] mb-2 block dark:text-white">
                               {t("Form.LastName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder={t("Form.LastName")}
                                 {...field}
-                                className="focus:ring-[#2b80e0] bg-white h-11"
+                                className="focus:ring-[#2b80e0] bg-white h-11 dark:text-white"
                               />
                             </FormControl>
                             <FormMessage />
@@ -299,14 +299,14 @@ const ContactUs = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[#212121] mb-2 block">
+                          <FormLabel className="text-[#212121] mb-2 block dark:text-white">
                             {t("Form.Email")}
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder={t("Form.Email")}
                               {...field}
-                              className="focus:ring-[#2b80e0] bg-white h-11"
+                              className="focus:ring-[#2b80e0] bg-white h-11 dark:text-white"
                             />
                           </FormControl>
                           <FormMessage />
@@ -319,14 +319,14 @@ const ContactUs = () => {
                       name="subject"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[#212121] mb-2 block">
+                          <FormLabel className="text-[#212121] mb-2 block dark:text-white">
                             {t("Form.Subject")}
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder={t("Form.Subject")}
                               {...field}
-                              className="focus:ring-[#2b80e0] bg-white h-11"
+                              className="focus:ring-[#2b80e0] bg-white h-11 dark:text-white"
                             />
                           </FormControl>
                           <FormMessage />
@@ -339,14 +339,14 @@ const ContactUs = () => {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[#212121] mb-2 block">
+                          <FormLabel className="text-[#212121] mb-2 block dark:text-white">
                             {t("Form.Message")}
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               placeholder={t("Form.Message")}
                               {...field}
-                              className="focus:ring-[#2b80e0] min-h-[160px] resize-none bg-white"
+                              className="focus:ring-[#2b80e0] min-h-[160px] resize-none bg-white dark:text-white"
                             />
                           </FormControl>
                           <FormMessage />
@@ -356,7 +356,7 @@ const ContactUs = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#2be0cc] to-[#4a2de1] hover:opacity-90 transition-all duration-300 h-12 text-base font-medium"
+                      className="w-full bg-gradient-to-r dark:text-white from-[#2be0cc] to-[#4a2de1] hover:opacity-90 transition-all duration-300 h-12 text-base font-medium"
                     >
                       {t("Form.Button")}
                     </Button>
