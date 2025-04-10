@@ -12,6 +12,10 @@
             "label": "About Us"
           },
           {
+            "href": "/#services",
+            "label": "Services"
+          },
+          {
             "href": "/#project",
             "label": "Projects"
           },
@@ -40,6 +44,37 @@
         "OurMissionTitle": "Our Mission",
         "OurMissionDescription": "Our mission is simple: to provide businesses with powerful, easy-to-use solutions that drive success. We are here to simplify technology, remove barriers, and help you make a lasting impact in your industry.",
         "TeamTitle": "Meet Our Team"
+      },
+      "Services": {
+        "Badge": "What We Offer",
+        "Title": "Our Services",
+        "SubTitle": "We offer comprehensive technology solutions to drive your business growth",
+        "Services": [
+          {
+            "title": "Software Development",
+            "description": "We create customized and scalable software solutions using the latest technologies and industry best practices."
+          },
+          {
+            "title": "Technology Consulting",
+            "description": "We advise companies on digital transformation and optimization of their technological processes."
+          },
+          {
+            "title": "Web Development",
+            "description": "We design and develop modern, responsive websites and progressive web applications."
+          },
+          {
+            "title": "Database Management",
+            "description": "We optimize and manage databases to ensure maximum performance and security."
+          },
+          {
+            "title": "AI & Automation",
+            "description": "We implement AI-powered automation solutions to streamline processes, reduce costs, and enhance productivity across your organization."
+          },
+          {
+            "title": "Dedicated Teams",
+            "description": "We provide specialized development teams for your specific projects."
+          }
+        ]
       },
       "ContactUs": {
         "Badge": "Get in Touch",
