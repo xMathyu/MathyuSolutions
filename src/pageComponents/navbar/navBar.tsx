@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,11 +21,25 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { theme } from "@/styles/theme";
 
 export function Navbar() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme: currentTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const params = useParams();
   const pathname = usePathname();
   const locale = (params?.locale as string) || "default-locale";
   const t = useTranslations("LandingPage.Section.Navbar");
+
+  // Only show the theme-dependent UI after mounting to prevent hydration errors
+  useEffect(() => {
+    setMounted(true);
+    // Set initial state based on current theme
+    setIsDarkMode(currentTheme === "dark");
+  }, [currentTheme]);
+
+  const handleThemeChange = (checked: boolean) => {
+    setIsDarkMode(checked);
+    setTheme(checked ? "dark" : "light");
+  };
 
   const navLinks: { href: string; label: string }[] = t.raw("NavItems") as {
     href: string;
@@ -63,21 +77,35 @@ export function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="h-16 shadow-lg bg-gradient-to-r from-[#2be0cc] via-[#2b80e0] to-[#4a2de1]  fixed  w-full z-50"
+      className="h-16 shadow-lg bg-gradient-to-r from-[#2be0cc] via-[#2b80e0] to-[#4a2de1] dark:from-[#1a1a1a] dark:via-[#2a2a2a] dark:to-[#3a3a3a] fixed w-full z-50"
     >
       <div
-        className={`${theme.spacing.container}   h-full flex items-center justify-between px-4 `}
+        className={`${theme.spacing.container} h-full flex items-center justify-between px-4`}
       >
         {/* Logo */}
         <Link href={`/${locale}/#hero`} className="h-full flex items-center">
           <div className="relative h-full w-32">
-            <Image
-              className="p-1"
-              src="/logos/logo.svg"
-              alt="Logo Mathyu's Solutions"
-              fill
-              style={{ objectFit: "contain" }}
-            />
+            {mounted ? (
+              <Image
+                className="p-1"
+                src={
+                  currentTheme === "dark"
+                    ? "/logos/logo-dark.svg"
+                    : "/logos/logo.svg"
+                }
+                alt="Logo Mathyu's Solutions"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            ) : (
+              <Image
+                className="p-1"
+                src="/logos/logo.svg"
+                alt="Logo Mathyu's Solutions"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            )}
           </div>
         </Link>
 
@@ -104,16 +132,17 @@ export function Navbar() {
 
         <div className="flex items-center space-x-4">
           <LanguageSwitcher />
-          <div className="flex items-center space-x-2 text-white">
-            <Sun className="h-[1.2rem] w-[1.2rem]" />
-            <Switch
-              className="data-[state=checked]:bg-sky-300 data-[state=unchecked]:bg-sky-300"
-              onCheckedChange={(checked) =>
-                setTheme(checked ? "dark" : "light")
-              }
-            />
-            <Moon className="h-[1.2rem] w-[1.2rem]" />
-          </div>
+          {mounted && (
+            <div className="flex items-center space-x-2 text-white">
+              <Sun className="h-[1.2rem] w-[1.2rem]" />
+              <Switch
+                className="data-[state=checked]:bg-sky-300 data-[state=unchecked]:bg-sky-300"
+                checked={isDarkMode}
+                onCheckedChange={handleThemeChange}
+              />
+              <Moon className="h-[1.2rem] w-[1.2rem]" />
+            </div>
+          )}
 
           <button
             className="md:hidden text-white"
@@ -136,7 +165,7 @@ export function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg"
+            className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-[#1a1a1a] shadow-lg"
           >
             <div className="flex flex-col space-y-2 p-4">
               {localizedNavLinks.map(({ href, label }) => (
@@ -144,7 +173,7 @@ export function Navbar() {
                   key={href}
                   href={href}
                   onClick={(e) => handleNavigation(e, href)}
-                  className="text-[#212121] hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors duration-200"
+                  className="text-[#212121] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 px-4 py-2 rounded-lg transition-colors duration-200"
                 >
                   {label}
                 </Link>

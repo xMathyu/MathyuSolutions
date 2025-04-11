@@ -85,7 +85,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden pt-24 bg-gradient-to-br from-[#254B98] to-[#1a3972] text-white">
+    <footer className="relative overflow-hidden pt-24 bg-gradient-to-br from-[#254B98] to-[#1a3972] dark:from-[#0a0a0a] dark:to-[#1a1a1a] text-white">
       {/* Upper SVG wave */}
       <div className="absolute top-0 left-0 w-full h-auto -translate-y-full pointer-events-none">
         <svg
@@ -113,10 +113,10 @@ export function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white mb-2">
+              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white dark:from-blue-300 dark:to-blue-100 mb-2">
                 {t("Title")}
               </h2>
-              <p className="text-sm text-blue-100/80 max-w-md">
+              <p className="text-sm text-blue-100/80 dark:text-blue-200/80 max-w-md">
                 {t("Subtitle")}
               </p>
             </motion.div>
@@ -133,13 +133,13 @@ export function Footer() {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="flex items-center space-x-3 text-sm text-blue-100/80 hover:text-white transition-colors group"
+                  className="flex items-center space-x-3 text-sm text-blue-100/80 dark:text-blue-200/80 hover:text-white transition-colors group"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <span className="p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+                  <span className="p-2 rounded-lg bg-white/5 dark:bg-white/10 group-hover:bg-white/10 dark:group-hover:bg-white/20 transition-colors">
                     {item.icon}
                   </span>
                   <span>{item.text}</span>
@@ -170,7 +170,7 @@ export function Footer() {
                   >
                     <a
                       href={link.href}
-                      className="text-sm text-blue-100/80 hover:text-white transition-colors inline-block relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-white after:transition-all hover:after:w-full"
+                      className="text-sm text-blue-100/80 dark:text-blue-200/80 hover:text-white transition-colors inline-block relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-white after:transition-all hover:after:w-full"
                     >
                       {link.name}
                     </a>
@@ -189,18 +189,18 @@ export function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="text-lg font-semibold">{t("Newsletter.Title")}</h3>
-            <p className="text-sm text-blue-100/80">
+            <p className="text-sm text-blue-100/80 dark:text-blue-200/80">
               {t("Newsletter.Description")}
             </p>
             <form className="space-y-3">
               <input
                 type="email"
                 placeholder={t("Newsletter.EmailPlaceholder")}
-                className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all text-sm placeholder:text-blue-100/50"
+                className="w-full px-4 py-2 rounded-lg bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 focus:border-white/20 dark:focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20 dark:focus:ring-white/30 transition-all text-sm placeholder:text-blue-100/50 dark:placeholder:text-blue-200/50"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 rounded-lg bg-white text-[#254B98] hover:bg-blue-100 transition-colors text-sm font-medium"
+                className="w-full px-4 py-2 rounded-lg bg-white dark:bg-blue-300 text-[#254B98] dark:text-[#0a0a0a] hover:bg-blue-100 dark:hover:bg-blue-200 transition-colors text-sm font-medium"
               >
                 {t("Newsletter.SubscribeButton")}
               </button>
@@ -209,9 +209,9 @@ export function Footer() {
         </div>
 
         {/* Social Links and Copyright */}
-        <div className="border-t border-white/10 pt-8">
+        <div className="border-t border-white/10 dark:border-white/20 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <p className="text-sm text-blue-100/80">
+            <p className="text-sm text-blue-100/80 dark:text-blue-200/80">
               &copy; {currentYear} {t("Copyright")}
             </p>
 
@@ -222,7 +222,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
+                  className="p-2 rounded-lg bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/20 transition-colors group"
                   aria-label={social.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
