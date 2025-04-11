@@ -34,7 +34,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden"
+      className="bg-gradient-to-br from-white via-gray-50 to-white dark:from-[#1f1f1f] dark:via-[#1f1f1f] dark:to-[#1f1f1f] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
@@ -56,7 +56,7 @@ export function ServicesSection() {
             {t("Title")}
           </h1>
           <p
-            className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto`}
+            className={`${theme.typography.body.large} text-[#555555] dark:text-neutral-300 max-w-2xl mx-auto`}
           >
             {t("SubTitle")}
           </p>
@@ -80,12 +80,12 @@ export function ServicesSection() {
                     <IconComponent className="w-8 h-8 text-[#2b80e0]" />
                   </div>
                   <h3
-                    className={`${theme.typography.heading.small} text-[#212121] mb-3`}
+                    className={`${theme.typography.heading.small} text-[#212121] mb-3 dark:text-white`}
                   >
                     {service.title}
                   </h3>
                   <p
-                    className={`${theme.typography.body.DEFAULT} text-[#555555]`}
+                    className={`${theme.typography.body.DEFAULT} text-[#555555] dark:text-neutral-300`}
                   >
                     {service.description}
                   </p>
