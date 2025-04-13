@@ -4,12 +4,12 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 interface WhatsAppButtonProps {
-  phoneNumber: string;
+  phoneNumber?: string;
   message?: string;
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber,
+  phoneNumber = "+51984300217",
   message = "Hola, me gustaría obtener más información sobre sus servicios.",
 }) => {
   const [showInitialMessage, setShowInitialMessage] = useState(true);
