@@ -41,7 +41,7 @@ export default async function RootLayout({
 
         <NextIntlClientProvider>
           {children}
-          <WhatsAppButton phoneNumber="+51984300217" />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>
