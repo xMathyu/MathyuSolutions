@@ -9,7 +9,7 @@ interface WhatsAppButtonProps {
 }
 
 const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber = "+51984300217",
+  phoneNumber = "+51994283802",
   message = "Hola, me gustaría obtener más información sobre sus servicios.",
 }) => {
   const [showInitialMessage, setShowInitialMessage] = useState(true);
