@@ -1,30 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 export const Interactive3DScene = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { left, top, width, height } = container.getBoundingClientRect();
-      const x = (clientX - left) / width;
-      const y = (clientY - top) / height;
-
-      setMousePosition({ x, y });
-      container.style.setProperty("--mouse-x", `${x * 100}%`);
-      container.style.setProperty("--mouse-y", `${y * 100}%`);
-    };
-
-    container.addEventListener("mousemove", handleMouseMove);
-    return () => container.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   // Configuración de los círculos
   const circles = [
@@ -77,15 +57,6 @@ export const Interactive3DScene = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="absolute inset-0 overflow-hidden pointer-events-none"
-      style={{
-        background: `
-          radial-gradient(
-            circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0) 50%
-          )
-        `,
-      }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#212121]/50 to-[#2b80e0]/50 dark:from-[#0a0a0a]/50 dark:to-[#1a1a1a]/50" />
 
@@ -98,18 +69,11 @@ export const Interactive3DScene = () => {
             top: circle.initialPosition.y,
             transformOrigin: "center",
           }}
-          animate={{
-            ...circle.animation,
-            x: mousePosition.x * 20 - 10, // Añade un ligero seguimiento al mouse
-          }}
+          animate={circle.animation}
           transition={{
             duration: circle.duration,
             repeat: Infinity,
             ease: "easeInOut",
-            x: {
-              duration: 0.5,
-              ease: "linear",
-            },
           }}
           whileHover={{
             scale: 1.2,
