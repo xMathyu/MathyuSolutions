@@ -4,6 +4,7 @@ import "./globals.css";
 
 import "@radix-ui/themes/styles.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 // NEXT-INTL SETUP
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -38,7 +39,10 @@ export default async function RootLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
 
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          {children}
+          <WhatsAppButton />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

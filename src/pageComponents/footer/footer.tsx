@@ -6,16 +6,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowUpCircle,
   Github,
   Twitter,
   Instagram,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -236,19 +231,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button with Adaptive Background */}
-      <motion.button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 p-2 rounded-full bg-blue-500/80 dark:bg-gray-700/80 backdrop-blur-sm border border-white/20 text-white shadow-lg transition-all z-50 group"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        aria-label="Scroll to top"
-      >
-        <ArrowUpCircle className="w-6 h-6 group-hover:transform group-hover:-translate-y-1 transition-transform" />
-      </motion.button>
     </footer>
   );
 }
