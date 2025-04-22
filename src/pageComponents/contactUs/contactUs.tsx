@@ -106,7 +106,7 @@ const ContactUs = () => {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-br from-white via-gray-50 to-white dark:from-[#1f1f1f] dark:via-[#1f1f1f] dark:to-[#1f1f1f] relative overflow-hidden py-16 sm:py-24"
+      className="bg-gradient-to-br from-white via-gray-50 to-white dark:from-[#1f1f1f] dark:via-[#1f1f1f] dark:to-[#1f1f1f] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div
