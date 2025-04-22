@@ -11,6 +11,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/pageComponents/navbar/navBar";
+import { ChatWidget } from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: "Mathyu's Solutions",
@@ -30,19 +31,22 @@ export default async function RootLayout({
     notFound();
   }
 
+  // Cargar mensajes para el locale activo
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.variable}`}>
         <ThemeProvider attribute="class">
-          <NextIntlClientProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <Navbar />
+            {children}
+            <WhatsAppButton />
+            <div id="chat-widget-root">
+              <ChatWidget key="chat-widget" />
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
-
-        <NextIntlClientProvider>
-          {children}
-          <WhatsAppButton />
-        </NextIntlClientProvider>
       </body>
     </html>
   );

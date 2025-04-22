@@ -143,5 +143,17 @@
         }
       }
     }
+  },
+  "ChatWidget": {
+    "branding": {
+      "name": "Asistente Virtual",
+      "welcomeText": "¡Hola! ¿En qué puedo ayudarte?",
+      "responseTimeText": "Respondemos en menos de 5 minutos",
+      "sendMessage": "Envíanos un mensaje"
+    },
+    "chat": {
+      "placeholder": "Escribe tu mensaje aquí...",
+      "sendButton": "Enviar"
+    }
   }
 }

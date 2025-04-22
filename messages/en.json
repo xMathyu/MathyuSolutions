@@ -143,5 +143,17 @@
         }
       }
     }
+  },
+  "ChatWidget": {
+    "branding": {
+      "name": "Virtual Assistant",
+      "welcomeText": "Hi! How can I help you?",
+      "responseTimeText": "We usually respond in less than 5 minutes",
+      "sendMessage": "Send us a message"
+    },
+    "chat": {
+      "placeholder": "Type your message here...",
+      "sendButton": "Send"
+    }
   }
 }
