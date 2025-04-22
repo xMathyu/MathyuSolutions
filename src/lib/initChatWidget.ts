@@ -288,32 +288,32 @@ export function initChatWidget() {
   };
 
   // Merge user config with defaults
-  const config = (window as any).ChatWidgetConfig
+  const config = window.ChatWidgetConfig
     ? {
         webhook: {
           ...defaultConfig.webhook,
-          ...(window as any).ChatWidgetConfig.webhook,
+          ...window.ChatWidgetConfig.webhook,
         },
         branding: {
           ...defaultConfig.branding,
-          ...(window as any).ChatWidgetConfig.branding,
+          ...window.ChatWidgetConfig.branding,
         },
         chat: {
           ...defaultConfig.chat,
-          ...(window as any).ChatWidgetConfig.chat,
+          ...window.ChatWidgetConfig.chat,
         },
         style: {
           ...defaultConfig.style,
-          ...(window as any).ChatWidgetConfig.style,
+          ...window.ChatWidgetConfig.style,
         },
       }
     : defaultConfig;
 
   // Prevent multiple initializations in same render cycle
-  const lastInit = (window as any).lastChatWidgetInit || 0;
+  const lastInit = window.lastChatWidgetInit || 0;
   const now = Date.now();
   if (now - lastInit < 1000) return; // Prevenir inicializaciones múltiples en menos de 1 segundo
-  (window as any).lastChatWidgetInit = now;
+  window.lastChatWidgetInit = now;
 
   // Create widget container
   const widgetContainer = document.createElement("div");

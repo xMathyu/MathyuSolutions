@@ -5,34 +5,6 @@ import { theme } from "@/styles/theme";
 import { useTranslations, useLocale } from "next-intl";
 import { initChatWidget } from "@/lib/initChatWidget";
 
-interface ChatWidgetConfigType {
-  webhook: { url: string; route: string };
-  branding: {
-    logo: string;
-    name: string;
-    welcomeText: string;
-    responseTimeText: string;
-    sendMessage: string;
-  };
-  chat: {
-    placeholder: string;
-    sendButton: string;
-  };
-  style: {
-    primaryColor: string;
-    secondaryColor: string;
-    position: string;
-    backgroundColor: string;
-    fontColor: string;
-  };
-}
-
-declare global {
-  interface Window {
-    ChatWidgetConfig: ChatWidgetConfigType;
-  }
-}
-
 export function ChatWidget() {
   const t = useTranslations("ChatWidget");
   const locale = useLocale();
@@ -57,6 +29,10 @@ export function ChatWidget() {
         url: "https://n8n.patrickbuilds.software/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat",
         route: "general",
       },
+      poweredBy: {
+        text: "",
+        link: "",
+      },
       branding: {
         logo: "/logos/logo.svg",
         name: t("branding.name"),
@@ -64,6 +40,7 @@ export function ChatWidget() {
         responseTimeText: t("branding.responseTimeText"),
         sendMessage: t("branding.sendMessage"),
       },
+
       chat: {
         placeholder: t("chat.placeholder"),
         sendButton: t("chat.sendButton"),
