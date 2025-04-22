@@ -8,6 +8,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 export default function Home() {
   return (
     <main className="overflow-hidden">
+      {/* <ThreeScene /> */}
       <HeroSection />
       <AboutUs />
       <ServicesSection />

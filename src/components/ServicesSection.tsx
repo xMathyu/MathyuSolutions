@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { theme } from "@/styles/theme";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import OurServices3DModel from "./OurServices3DModel";
 
 const serviceIcons = {
   "Software Development": Code2,
@@ -50,11 +51,18 @@ export function ServicesSection() {
           <Badge variant="outline" className="mb-4 px-4 py-1 text-sm">
             {t("Badge")}
           </Badge>
-          <h1
-            className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1]`}
-          >
-            {t("Title")}
-          </h1>
+
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
+            <h1
+              className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1]`}
+            >
+              {t("Title")}
+            </h1>
+            <div className="w-full lg:w-1/6">
+              <OurServices3DModel />
+            </div>
+          </div>
+
           <p
             className={`${theme.typography.body.large} text-[#555555] dark:text-neutral-300 max-w-2xl mx-auto`}
           >

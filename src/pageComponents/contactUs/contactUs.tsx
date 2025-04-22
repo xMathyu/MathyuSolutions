@@ -22,6 +22,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { theme } from "@/styles/theme";
+import ContactUs3DModel from "@/components/ContactUs3DModel";
 
 const ContactUs = () => {
   const t = useTranslations("LandingPage.Section.ContactUs");
@@ -124,11 +125,16 @@ const ContactUs = () => {
           >
             {t("Badge")}
           </Badge>
-          <h1
-            className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1]`}
-          >
-            {t("Title")}
-          </h1>
+          <div className="flex flex-col lg:flex-row justify-center items-center">
+            <h1
+              className={`${theme.typography.heading.large} text-[#212121] mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2b80e0] to-[#4a2de1]`}
+            >
+              {t("Title")}
+            </h1>
+            <div className="w-full lg:w-1/6">
+              <ContactUs3DModel />
+            </div>
+          </div>
           <p
             className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto dark:text-neutral-300`}
           >

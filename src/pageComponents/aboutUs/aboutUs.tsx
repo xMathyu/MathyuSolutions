@@ -81,6 +81,7 @@ const AboutUs = () => {
           >
             {t("Title")}
           </h1>
+
           <p
             className={`${theme.typography.body.large} text-[#555555] max-w-2xl mx-auto dark:text-neutral-300`}
           >
