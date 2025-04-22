@@ -49,15 +49,14 @@ export function initChatWidget() {
       --chat--color-background: var(--n8n-chat-background-color, #ffffff);
       --chat--color-font: var(--n8n-chat-font-color, #333333);
       font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    .n8n-chat-widget .chat-container {
+    }    .n8n-chat-widget .chat-container {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
+      bottom: 80px;
+      right: 16px;
+      z-index: 49;
       display: none;
-      width: 380px;
-      height: 600px;
+      width: 320px;
+      height: 480px;
       background: var(--chat--color-background);
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(133, 79, 255, 0.15);
@@ -65,9 +64,13 @@ export function initChatWidget() {
       overflow: hidden;
       font-family: inherit;
     }
-    .n8n-chat-widget .chat-container.position-left {
-      right: auto;
-      left: 20px;
+    @media (min-width: 640px) {
+      .n8n-chat-widget .chat-container {
+        bottom: 96px;
+        right: 32px;
+        width: 380px;
+        height: 520px;
+      }
     }
     .n8n-chat-widget .chat-container.open {
       display: flex;
@@ -222,28 +225,44 @@ export function initChatWidget() {
     .n8n-chat-widget .chat-input textarea { flex: 1; padding: 12px; border: 1px solid rgba(133, 79, 255, 0.2); border-radius: 8px; background: var(--chat--color-background); color: var(--chat--color-font); resize: none; font-family: inherit; font-size: 14px; }
     .n8n-chat-widget .chat-input textarea::placeholder { color: var(--chat--color-font); opacity: 0.6; }
     .n8n-chat-widget .chat-input button { background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%); color: white; border: none; border-radius: 8px; padding: 0 20px; cursor: pointer; font-family: inherit; font-weight: 500; transition: transform 0.2s; }
-    .n8n-chat-widget .chat-input button:hover { transform: scale(1.05); }
-    .n8n-chat-widget .chat-toggle {
+    .n8n-chat-widget .chat-input button:hover { transform: scale(1.05); }    .n8n-chat-widget .chat-toggle {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 30px;
+      bottom: 16px;
+      right: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
       background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
       color: white;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(133, 79, 255, 0.3);
-      z-index: 999;
-      transition: transform 0.3s;
+      z-index: 50;
+      transition: all 0.3s;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 12px;
     }
-    .n8n-chat-widget .chat-toggle.position-left { right: auto; left: 20px; }
-    .n8n-chat-widget .chat-toggle:hover { transform: scale(1.05); }
+    @media (min-width: 640px) {
+      .n8n-chat-widget .chat-toggle {
+        bottom: 32px;
+        right: 32px;
+        width: 64px;
+        height: 64px;
+        padding: 14px;
+      }
+    }
+    .n8n-chat-widget .chat-toggle:hover { transform: scale(1.1); }
     .n8n-chat-widget .chat-toggle svg { width: 24px; height: 24px; fill: currentColor; }
+    .n8n-chat-widget .chat-toggle .absolute {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      background-color: var(--chat--color-primary);
+      opacity: 0.75;
+    }
     .n8n-chat-widget .chat-footer { padding: 8px; text-align: center; background: var(--chat--color-background); border-top: 1px solid rgba(133, 79, 255, 0.1); }
     .n8n-chat-widget .chat-footer a { color: var(--chat--color-primary); text-decoration: none; font-size: 12px; opacity: 0.8; transition: opacity 0.2s; font-family: inherit; }
     .n8n-chat-widget .chat-footer a:hover { opacity: 1; }
@@ -380,9 +399,7 @@ export function initChatWidget() {
   toggleButton.className = `chat-toggle${
     config.style.position === "left" ? " position-left" : ""
   }`;
-  toggleButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-       <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.476 0-2.886-.313-4.156-.878l-3.156.586.586-3.156A7.962 7.962 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
-     </svg>`;
+  toggleButton.innerHTML = `<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-message-chatbot"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-2.8 9.286a1 1 0 0 0 -1.414 .014a2.5 2.5 0 0 1 -3.572 0a1 1 0 0 0 -1.428 1.4a4.5 4.5 0 0 0 6.428 0a1 1 0 0 0 -.014 -1.414m-5.69 -4.286h-.01a1 1 0 1 0 0 2h.01a1 1 0 0 0 0 -2m5 0h-.01a1 1 0 0 0 0 2h.01a1 1 0 0 0 0 -2" /></svg>`;
 
   widgetContainer.appendChild(chatContainer);
   widgetContainer.appendChild(toggleButton);

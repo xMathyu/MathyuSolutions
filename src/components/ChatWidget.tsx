@@ -48,7 +48,7 @@ export function ChatWidget() {
       style: {
         primaryColor: theme.colors.primary.DEFAULT,
         secondaryColor: theme.colors.primary.dark,
-        position: "left",
+        position: "right",
         backgroundColor: theme.colors.secondary.light,
         fontColor: theme.colors.text.primary,
       },
