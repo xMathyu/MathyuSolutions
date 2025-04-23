@@ -58,6 +58,17 @@ const TEXT_STYLES = {
   },
 };
 
+const MOBILE_MENU_STYLES = {
+  dark: {
+    button: "text-white bg-white/10 hover:bg-white/15",
+    menu: "bg-[#1a1a1a]/80 backdrop-blur-[12px] border-t border-white/5",
+  },
+  light: {
+    button: "text-white bg-white/20 hover:bg-white/30",
+    menu: "backdrop-blur-[12px] border-t border-white/10 bg-gradient-to-r from-[#2be0cc]/80 via-[#2b80e0]/80 to-[#4a2de1]/80",
+  },
+};
+
 export function Navbar() {
   const { setTheme, theme: currentTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -75,7 +86,8 @@ export function Navbar() {
   // Efecto para manejar el montaje y tema inicial
   useEffect(() => {
     setMounted(true);
-    setIsDarkMode(currentTheme === "dark");
+    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setIsDarkMode(currentTheme === "dark" || (!currentTheme && isDark));
   }, [currentTheme]);
 
   // Manejador de scroll
@@ -121,10 +133,24 @@ export function Navbar() {
     href: `/${locale}${link.href}`,
   }));
 
+  // Renderizar un placeholder mientras se monta
+  if (!mounted) {
+    return (
+      <nav className="fixed w-full z-50 h-16 bg-gradient-to-r from-[#1a1a1a]/90 to-[#2a2a2a]/90">
+        <div
+          className={`${theme.spacing.container} h-full flex items-center justify-between px-4 relative max-w-7xl mx-auto`}
+        >
+          <div className="h-full w-24 sm:w-32" />
+        </div>
+      </nav>
+    );
+  }
+
   // Renderizar el componente
   return (
     <motion.nav
       {...NAVBAR_STYLES}
+      suppressHydrationWarning
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled ? "h-14 backdrop-blur-md" : "h-16"
       } ${
@@ -138,11 +164,14 @@ export function Navbar() {
       }`}
     >
       <div
-        className={`${theme.spacing.container} h-full flex items-center justify-between px-4 relative`}
+        className={`${theme.spacing.container} h-full flex items-center justify-between px-4 relative max-w-7xl mx-auto`}
       >
         {/* Logo */}
-        <Link href={`/${locale}/#hero`} className="h-full flex items-center">
-          <div className="relative h-full w-32">
+        <Link
+          href={`/${locale}/#hero`}
+          className="h-full flex items-center flex-shrink-0"
+        >
+          <div className="relative h-full w-24 sm:w-32">
             {mounted && (
               <Image
                 className="p-1"
@@ -161,16 +190,16 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center justify-center flex-1">
           <NavigationMenu>
-            <NavigationMenuList className="flex items-center gap-6">
+            <NavigationMenuList className="flex items-center gap-4 lg:gap-6">
               {localizedNavLinks.map(({ href, label }) => (
                 <NavigationMenuItem key={href}>
                   <NavigationMenuLink asChild>
                     <Link
                       href={href}
                       onClick={(e) => handleNavigation(e, href)}
-                      className={`relative px-3 py-2 text-[15px] font-medium transition-all duration-200 ${
+                      className={`relative px-2 lg:px-3 py-2 text-[14px] lg:text-[15px] font-medium transition-all duration-200 whitespace-nowrap ${
                         currentTheme === "dark"
                           ? TEXT_STYLES.dark
                           : isScrolled
@@ -206,11 +235,11 @@ export function Navbar() {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
           <LanguageSwitcher />
           {mounted && (
             <div
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg ${
                 currentTheme === "dark"
                   ? "bg-white/10"
                   : isScrolled
@@ -219,7 +248,7 @@ export function Navbar() {
               }`}
             >
               <Sun
-                className={`h-4 w-4 ${
+                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${
                   currentTheme === "dark"
                     ? "text-white"
                     : isScrolled
@@ -228,12 +257,12 @@ export function Navbar() {
                 }`}
               />
               <Switch
-                className="data-[state=checked]:bg-[#2be0cc] data-[state=unchecked]:bg-[#2be0cc]"
+                className="data-[state=checked]:bg-[#2be0cc] data-[state=unchecked]:bg-[#2be0cc] scale-90 sm:scale-100"
                 checked={isDarkMode}
                 onCheckedChange={handleThemeChange}
               />
               <Moon
-                className={`h-4 w-4 ${
+                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${
                   currentTheme === "dark"
                     ? "text-white"
                     : isScrolled
@@ -246,19 +275,17 @@ export function Navbar() {
 
           <button
             aria-label="Toggle mobile menu"
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`md:hidden p-1.5 sm:p-2 rounded-lg transition-colors ${
               currentTheme === "dark"
-                ? "text-white bg-white/10 hover:bg-white/15"
-                : isScrolled
-                ? "text-gray-800 bg-white/30 hover:bg-white/40 backdrop-blur-sm"
-                : "text-white bg-white/20 hover:bg-white/30"
+                ? MOBILE_MENU_STYLES.dark.button
+                : MOBILE_MENU_STYLES.light.button
             }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" />
             ) : (
-              <Menu className="h-5 w-5" />
+              <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
             )}
           </button>
         </div>
@@ -272,15 +299,13 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`md:hidden absolute top-[calc(100%+1px)] left-0 w-full shadow-lg ${
+            className={`md:hidden fixed top-[calc(var(--navbar-height,4rem)+1px)] left-0 w-full shadow-lg ${
               currentTheme === "dark"
-                ? "bg-[#1a1a1a]/80 backdrop-blur-[12px] border-t border-white/5"
-                : isScrolled
-                ? "bg-white/60 backdrop-blur-[12px] border-t border-white/20 bg-gradient-to-b from-white/80 to-white/60"
-                : "backdrop-blur-[12px] border-t border-white/10 bg-gradient-to-r from-[#2be0cc]/80 via-[#2b80e0]/80 to-[#4a2de1]/80"
+                ? MOBILE_MENU_STYLES.dark.menu
+                : MOBILE_MENU_STYLES.light.menu
             }`}
           >
-            <div className="flex flex-col p-2 gap-1">
+            <div className="flex flex-col p-2 gap-1 max-w-7xl mx-auto">
               {localizedNavLinks.map(({ href, label }, index) => (
                 <motion.div
                   key={href}
