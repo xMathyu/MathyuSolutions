@@ -66,7 +66,7 @@ export function initChatWidget() {
     }
     @media (min-width: 640px) {
       .n8n-chat-widget .chat-container {
-        bottom: 96px;
+        bottom: 110px;
         right: 32px;
         width: 380px;
         height: 520px;
