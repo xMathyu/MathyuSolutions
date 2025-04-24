@@ -2,14 +2,20 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
 
   const languages = [
     {
@@ -40,11 +46,21 @@ export function LanguageSwitcher() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-sm font-medium text-white hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 transition-all duration-200">
+        <Menu.Button
+          className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 ${
+            isScrolled
+              ? "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus-visible:ring-blue-500 shadow-sm border border-gray-200 dark:border-gray-700"
+              : "bg-white/10 text-white hover:bg-white/20 focus-visible:ring-white"
+          }`}
+        >
           <motion.div
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
-            className="relative h-5 w-5 overflow-hidden rounded-full border border-white/20"
+            className={`relative h-5 w-5 overflow-hidden rounded-full ${
+              isScrolled
+                ? "border border-gray-200 dark:border-gray-600"
+                : "border border-white/20"
+            }`}
           >
             <Image
               src={currentLanguage.flag}
@@ -58,7 +74,11 @@ export function LanguageSwitcher() {
             {currentLanguage.label}
           </span>
           <span className="sm:hidden">{currentLanguage.shortLabel}</span>
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown
+            className={`h-4 w-4 ${
+              isScrolled ? "text-gray-500 dark:text-gray-400" : "text-white"
+            }`}
+          />
         </Menu.Button>
       </div>
       <Transition
@@ -80,10 +100,10 @@ export function LanguageSwitcher() {
                     className={`${
                       active
                         ? "bg-blue-500 text-white"
-                        : "text-gray-900 dark:text-gray-100"
+                        : "text-gray-700 dark:text-gray-200"
                     } group flex w-full items-center rounded-lg px-2 py-2 text-sm transition-all duration-200`}
                   >
-                    <div className="relative h-5 w-5 overflow-hidden rounded-full mr-2">
+                    <div className="relative h-5 w-5 overflow-hidden rounded-full mr-2 border border-gray-200 dark:border-gray-600">
                       <Image
                         src={language.flag}
                         alt={language.label}
@@ -97,7 +117,7 @@ export function LanguageSwitcher() {
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="ml-auto flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 dark:bg-blue-600"
+                        className="ml-auto flex h-4 w-4 items-center justify-center rounded-full bg-blue-500"
                       >
                         <div className="h-2 w-2 rounded-full bg-white" />
                       </motion.div>
