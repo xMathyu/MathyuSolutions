@@ -75,7 +75,12 @@ export function Navbar() {
   // Efecto para manejar el montaje y tema inicial
   useEffect(() => {
     setMounted(true);
-    setIsDarkMode(currentTheme === "dark");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+    } else {
+      setIsDarkMode(currentTheme === "dark");
+    }
   }, [currentTheme]);
 
   // Manejador de scroll
@@ -85,8 +90,10 @@ export function Navbar() {
 
   // Manejador de cambio de tema
   const handleThemeChange = (checked: boolean) => {
+    if (!mounted) return;
     setIsDarkMode(checked);
     setTheme(checked ? "dark" : "light");
+    localStorage.setItem("theme", checked ? "dark" : "light");
   };
 
   // Manejador de navegación
@@ -120,6 +127,10 @@ export function Navbar() {
     ...link,
     href: `/${locale}${link.href}`,
   }));
+
+  if (!mounted) {
+    return null;
+  }
 
   // Renderizar el componente
   return (

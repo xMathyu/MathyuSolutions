@@ -16,7 +16,7 @@ export default function OurProjects3DModel() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(220, 220);
+    renderer.setSize(150, 150);
     mountRef.current.appendChild(renderer.domElement);
 
     // Configuración de la cámara
@@ -60,7 +60,7 @@ export default function OurProjects3DModel() {
         camera.lookAt(0, size.y * 0.5, 0);
 
         // Posicionar el modelo
-        model.position.y = size.y * 0.01;
+        model.position.y = size.y * 0.15;
 
         // Actualizar los controles
         controls.target.copy(center);

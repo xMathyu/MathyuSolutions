@@ -16,7 +16,7 @@ export default function ContactUs3DModel() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(200, 200);
+    renderer.setSize(150, 150);
     mountRef.current.appendChild(renderer.domElement);
 
     // Configuración de la cámara
@@ -55,7 +55,7 @@ export default function ContactUs3DModel() {
         let cameraZ = Math.abs(maxDim / Math.tan(fov / 2));
 
         // Ajustar la posición de la cámara
-        camera.position.z = cameraZ * 2.0;
+        camera.position.z = cameraZ * 2.2;
         camera.position.y = size.y * 0.5;
         camera.lookAt(0, size.y * 1.0, 0);
 

@@ -3,35 +3,45 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion as m } from "framer-motion";
+import { motion as m, useInView } from "framer-motion";
 import { theme } from "@/styles/theme";
 import { Interactive3DScene } from "@/components/Interactive3DScene";
+import { useRef } from "react";
 
 function HeroSection() {
   const t = useTranslations("LandingPage.Section.Hero");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="bg-gradient-to-br from-[#212121] to-[#2b80e0] dark:from-[#0a0a0a] dark:to-[#1a1a1a] min-h-[100dvh] flex items-center relative overflow-hidden">
-      <Interactive3DScene />
+    <div
+      ref={ref}
+      className="bg-gradient-to-br from-[#212121] to-[#2b80e0] dark:from-[#0a0a0a] dark:to-[#1a1a1a] min-h-[100dvh] flex items-center relative overflow-hidden"
+    >
+      <div className="absolute inset-0">
+        <Interactive3DScene />
+      </div>
       <div
         className={`${theme.spacing.container} ${theme.spacing.section} flex flex-col lg:flex-row justify-between items-center gap-12 relative z-10`}
       >
         <m.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={false}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ duration: 0.8 }}
           className="w-full lg:w-1/2 text-center lg:text-left"
         >
           <m.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={false}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className={`${theme.typography.heading.large} mb-6 text-white leading-tight`}
           >
             {t("TitleOne")}{" "}
             <m.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={false}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+              }
               transition={{ duration: 0.5, delay: 0.4 }}
               className="bg-white dark:bg-gray-800 text-[#2b80e0] dark:text-[#4a2de1] px-4 py-2 rounded-lg inline-block"
             >
@@ -98,5 +108,4 @@ function HeroSection() {
   );
 }
 
-export { HeroSection };
 export default HeroSection;
