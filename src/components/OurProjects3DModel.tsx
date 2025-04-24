@@ -52,7 +52,7 @@ export default function OurProjects3DModel() {
         // Calcular la distancia necesaria para que el modelo quepa en la vista
         const maxDim = Math.max(150, 150, 150);
         const fov = camera.fov * (Math.PI / 180);
-        let cameraZ = Math.abs(maxDim / Math.tan(fov / 2));
+        const cameraZ = Math.abs(maxDim / Math.tan(fov / 2));
 
         // Ajustar la posición de la cámara
         camera.position.z = cameraZ * 0.15;
