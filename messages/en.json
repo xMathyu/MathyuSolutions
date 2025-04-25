@@ -141,6 +141,12 @@
           "EmailPlaceholder": "Enter your email",
           "SubscribeButton": "Subscribe"
         }
+      },
+      "WhatsApp": {
+        "InitialMessage": "Need help? Write to us!",
+        "Tooltip": "Chat with us",
+        "AriaLabel": "Contact via WhatsApp",
+        "DefaultMessage": "Hello, I would like to get more information about your services."
       }
     }
   },
