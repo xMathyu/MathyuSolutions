@@ -92,13 +92,13 @@ export function LanguageSwitcher() {
           >
             <Menu.Button
               className={clsx(
-                "inline-flex items-center gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                "inline-flex items-center justify-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-200 h-8 sm:h-9",
                 isScrolled
                   ? "bg-white/30 backdrop-blur-sm text-gray-800 dark:text-gray-100"
                   : "bg-white/20 text-white"
               )}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
                 <AnimatePresence mode="wait">
                   {isLoading === currentLanguage.code ? (
                     <motion.div
@@ -108,7 +108,7 @@ export function LanguageSwitcher() {
                       exit={{ opacity: 0, scale: 0.5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin" />
+                      <Loader2 className="h-4 w-4" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -117,7 +117,7 @@ export function LanguageSwitcher() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.3 }}
-                      className="relative h-3.5 w-3.5 sm:h-4 sm:w-4 overflow-hidden rounded-full"
+                      className="relative h-4 w-4 overflow-hidden rounded-full"
                     >
                       <Image
                         src={currentLanguage.flag}
