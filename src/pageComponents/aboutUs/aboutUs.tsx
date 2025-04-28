@@ -45,6 +45,18 @@ const AboutUs = () => {
       avatar: "/avatars/FS.webp",
       bio: "Software developer with experience in frontend and backend technologies",
     },
+    {
+      name: "Oscar Antayhua",
+      role: "Full Stack Developer & Automation Specialist",
+      avatar: "/avatars/OA.webp",
+      bio: "Full-stack specialist in web technologies and automation.",
+    },
+    {
+      name: "Jeandet Montejos",
+      role: "Graphic & Multimedia Designer",
+      avatar: "/avatars/JM.webp",
+      bio: "Creative specialist in graphic design, web design, and multimedia content creation.",
+    },
   ];
 
   const stats = [

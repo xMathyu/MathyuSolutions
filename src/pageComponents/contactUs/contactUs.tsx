@@ -356,7 +356,7 @@ const ContactUs = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r dark:text-white from-[#2be0cc] to-[#4a2de1] hover:opacity-90 transition-all duration-300 h-12 text-base font-medium"
+                      className="w-full cursor-pointer bg-gradient-to-r dark:text-white from-[#2be0cc] to-[#4a2de1] hover:opacity-90 transition-all duration-300 h-12 text-base font-medium"
                     >
                       {t("Form.Button")}
                     </Button>

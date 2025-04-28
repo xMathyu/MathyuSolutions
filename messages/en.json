@@ -33,7 +33,21 @@
         "Description": "Forget the complicated setups—focus on making your project a success! 🚀 Mathyu's Solutions helps you launch your website, app, or online business quickly and effortlessly—no tech headaches, no hidden costs, just build and grow.",
         "Button": "Contact Us",
         "ButtonLink": "/#contact",
-        "ImageAlt": "Tech Stack"
+        "ImageAlt": "Tech Stack",
+        "PrevSlide": "Previous slide",
+        "NextSlide": "Next slide",
+        "Slides": {
+          "1": {
+            "TitleOne": "Automation",
+            "TitleTwo": "intelligent",
+            "Description": "Optimize your processes and increase productivity with our automation tools."
+          },
+          "2": {
+            "TitleOne": "Consulting",
+            "TitleTwo": "technological",
+            "Description": "We help you make the best decisions for your technological project."
+          }
+        }
       },
       "AboutUs": {
         "Badge": "Our Journey",

@@ -33,7 +33,21 @@
         "Description": "Olvídate de configuraciones complicadas y enfócate en hacer crecer tu proyecto. 🚀 Mathyu's Solutions te ayuda a lanzar tu sitio web, aplicación o negocio en línea sin complicaciones—sin dolores de cabeza, sin costos ocultos, solo crea y avanza.",
         "Button": "Contacto",
         "ButtonLink": "#contact",
-        "ImageAlt": "Pila Tecnológica"
+        "ImageAlt": "Pila Tecnológica",
+        "PrevSlide": "Diapositiva anterior",
+        "NextSlide": "Siguiente diapositiva",
+        "Slides": {
+          "1": {
+            "TitleOne": "Automatización",
+            "TitleTwo": "inteligente",
+            "Description": "Optimiza tus procesos y aumenta la productividad con nuestras herramientas de automatización."
+          },
+          "2": {
+            "TitleOne": "Consultoría",
+            "TitleTwo": "tecnológica",
+            "Description": "Te ayudamos a tomar las mejores decisiones para tu proyecto tecnológico."
+          }
+        }
       },
       "AboutUs": {
         "Badge": "Nuestro Viaje",
