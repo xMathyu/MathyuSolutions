@@ -34,6 +34,12 @@ const AboutUs = () => {
       bio: "Experienced leader in software development and team management",
     },
     {
+      name: "Samir Montrejos",
+      role: "FilmMaker",
+      avatar: "/avatars/SM.webp",
+      bio: "Experienced filmmaker in graphic design, video recording, and video editing.",
+    },
+    {
       name: "Andrés Torres",
       role: "Full Stack Developer",
       avatar: "/avatars/AT.webp",
