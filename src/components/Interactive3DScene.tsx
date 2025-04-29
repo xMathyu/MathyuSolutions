@@ -3,7 +3,11 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-export const Interactive3DScene = () => {
+interface Interactive3DSceneProps {
+  className?: string;
+}
+
+export const Interactive3DScene = ({ className = "" }: Interactive3DSceneProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Configuración de los círculos
@@ -17,6 +21,7 @@ export const Interactive3DScene = () => {
         rotate: [0, 360],
       },
       duration: 8,
+      color: "from-white/5 to-white/20"
     },
     {
       size: "w-24 h-24",
@@ -56,14 +61,14 @@ export const Interactive3DScene = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="absolute inset-0 overflow-hidden pointer-events-none"
+      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#212121]/50 to-[#2b80e0]/50 dark:from-[#0a0a0a]/50 dark:to-[#1a1a1a]/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#212121]/10 to-[#2b80e0]/10 dark:from-[#0a0a0a]/10 dark:to-[#1a1a1a]/10" />
 
       {circles.map((circle, index) => (
         <motion.div
           key={index}
-          className={`absolute ${circle.size} rounded-full bg-gradient-to-br from-white/5 to-white/20 backdrop-blur-sm shadow-lg`}
+          className={`absolute ${circle.size} rounded-full bg-gradient-to-br ${circle.color} backdrop-blur-sm shadow-lg`}
           style={{
             left: circle.initialPosition.x,
             top: circle.initialPosition.y,
