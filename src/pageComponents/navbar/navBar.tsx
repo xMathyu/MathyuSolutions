@@ -241,11 +241,11 @@ export function Navbar() {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0 h-full">
           <LanguageSwitcher />
           {mounted && (
             <div
-              className={`flex items-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg ${
+              className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-200 h-8 sm:h-9 ${
                 currentTheme === "dark"
                   ? "bg-white/10"
                   : isScrolled
@@ -254,7 +254,7 @@ export function Navbar() {
               }`}
             >
               <Sun
-                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${
+                className={`h-4 w-4 ${
                   currentTheme === "dark"
                     ? "text-white"
                     : isScrolled
@@ -263,12 +263,12 @@ export function Navbar() {
                 }`}
               />
               <Switch
-                className="data-[state=checked]:bg-[#2be0cc] data-[state=unchecked]:bg-[#2be0cc] scale-90 sm:scale-100"
+                className="data-[state=checked]:bg-[#2be0cc] data-[state=unchecked]:bg-[#2be0cc]"
                 checked={isDarkMode}
                 onCheckedChange={handleThemeChange}
               />
               <Moon
-                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${
+                className={`h-4 w-4 ${
                   currentTheme === "dark"
                     ? "text-white"
                     : isScrolled
@@ -281,7 +281,7 @@ export function Navbar() {
 
           <button
             aria-label="Toggle mobile menu"
-            className={`md:hidden p-1.5 sm:p-2 rounded-lg transition-colors ${
+            className={`md:hidden inline-flex items-center justify-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg h-8 sm:h-9 ${
               currentTheme === "dark"
                 ? MOBILE_MENU_STYLES.dark.button
                 : MOBILE_MENU_STYLES.light.button
@@ -289,9 +289,25 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="h-4 w-4 sm:h-5 sm:w-5" />
+              <X
+                className={`h-4 w-4 ${
+                  currentTheme === "dark"
+                    ? "text-white"
+                    : isScrolled
+                    ? "text-gray-800"
+                    : "text-white"
+                }`}
+              />
             ) : (
-              <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Menu
+                className={`h-4 w-4 ${
+                  currentTheme === "dark"
+                    ? "text-white"
+                    : isScrolled
+                    ? "text-gray-800"
+                    : "text-white"
+                }`}
+              />
             )}
           </button>
         </div>
