@@ -70,9 +70,8 @@ const MOBILE_MENU_STYLES = {
 };
 
 export function Navbar() {
-  const { setTheme, theme: currentTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
@@ -83,12 +82,10 @@ export function Navbar() {
   const t = useTranslations("LandingPage.Section.Navbar");
   const { scrollY } = useScroll();
 
-  // Efecto para manejar el montaje y tema inicial
+  // Efecto para manejar el montaje
   useEffect(() => {
     setMounted(true);
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDarkMode(currentTheme === "dark" || (!currentTheme && isDark));
-  }, [currentTheme]);
+  }, []);
 
   // Manejador de scroll
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -97,7 +94,6 @@ export function Navbar() {
 
   // Manejador de cambio de tema
   const handleThemeChange = (checked: boolean) => {
-    setIsDarkMode(checked);
     setTheme(checked ? "dark" : "light");
   };
 
@@ -133,14 +129,23 @@ export function Navbar() {
     href: `/${locale}${link.href}`,
   }));
 
-  // Renderizar un placeholder mientras se monta
+  // Renderizar un placeholder mientras se monta con el tema del sistema
   if (!mounted) {
     return (
-      <nav className="fixed w-full z-50 h-16 bg-gradient-to-r from-[#1a1a1a]/90 to-[#2a2a2a]/90">
+      <nav className="fixed w-full z-50 h-16 bg-gradient-to-r from-[#2be0cc] via-[#2b80e0] to-[#4a2de1] dark:from-[#1a1a1a]/90 dark:to-[#2a2a2a]/90 transition-all duration-300">
         <div
           className={`${theme.spacing.container} h-full flex items-center justify-between px-4 relative max-w-7xl mx-auto`}
         >
-          <div className="h-full w-24 sm:w-32" />
+          <div className="h-full w-24 sm:w-32">
+            {/* Logo placeholder que respeta el tema del sistema */}
+            <div className="h-full w-full bg-white/10 dark:bg-white/5 rounded animate-pulse" />
+          </div>
+          
+          {/* Controles placeholder */}
+          <div className="flex items-center gap-4">
+            <div className="h-8 w-16 bg-white/10 dark:bg-white/5 rounded animate-pulse" />
+            <div className="h-8 w-24 bg-white/10 dark:bg-white/5 rounded animate-pulse" />
+          </div>
         </div>
       </nav>
     );
@@ -154,7 +159,7 @@ export function Navbar() {
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled ? "h-14 backdrop-blur-md" : "h-16"
       } ${
-        currentTheme === "dark"
+        resolvedTheme === "dark"
           ? isScrolled
             ? GRADIENT_STYLES.dark.scrolled
             : GRADIENT_STYLES.dark.default
@@ -176,7 +181,7 @@ export function Navbar() {
               <Image
                 className="p-1"
                 src={
-                  currentTheme === "dark"
+                  resolvedTheme === "dark"
                     ? "/logos/logo-dark.svg"
                     : "/logos/logo.svg"
                 }
@@ -200,7 +205,7 @@ export function Navbar() {
                       href={href}
                       onClick={(e) => handleNavigation(e, href)}
                       className={`relative px-2 lg:px-3 py-2 text-[14px] lg:text-[15px] font-medium transition-all duration-200 whitespace-nowrap ${
-                        currentTheme === "dark"
+                        resolvedTheme === "dark"
                           ? TEXT_STYLES.dark
                           : isScrolled
                           ? TEXT_STYLES.light.scrolled
@@ -211,7 +216,7 @@ export function Navbar() {
                         {label}
                         <motion.span
                           className={`absolute -bottom-0.5 left-0 w-full h-[2px] ${
-                            currentTheme === "dark"
+                            resolvedTheme === "dark"
                               ? "bg-[#2be0cc]"
                               : isScrolled
                               ? "bg-[#2be0cc]"
@@ -240,7 +245,7 @@ export function Navbar() {
           {mounted && (
             <div
               className={`inline-flex items-center justify-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-200 h-8 sm:h-9 ${
-                currentTheme === "dark"
+                resolvedTheme === "dark"
                   ? "bg-white/10"
                   : isScrolled
                   ? "bg-white/30 backdrop-blur-sm"
@@ -249,7 +254,7 @@ export function Navbar() {
             >
               <Sun
                 className={`h-4 w-4 ${
-                  currentTheme === "dark"
+                  resolvedTheme === "dark"
                     ? "text-white"
                     : isScrolled
                     ? "text-gray-800"
@@ -258,12 +263,12 @@ export function Navbar() {
               />
               <Switch
                 className="data-[state=checked]:bg-[#2be0cc] data-[state=unchecked]:bg-[#2be0cc]"
-                checked={isDarkMode}
+                checked={resolvedTheme === "dark"}
                 onCheckedChange={handleThemeChange}
               />
               <Moon
                 className={`h-4 w-4 ${
-                  currentTheme === "dark"
+                  resolvedTheme === "dark"
                     ? "text-white"
                     : isScrolled
                     ? "text-gray-800"
@@ -276,7 +281,7 @@ export function Navbar() {
           <button
             aria-label="Toggle mobile menu"
             className={`md:hidden inline-flex items-center justify-center gap-1.5 sm:gap-2 px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-lg h-8 sm:h-9 ${
-              currentTheme === "dark"
+              resolvedTheme === "dark"
                 ? MOBILE_MENU_STYLES.dark.button
                 : MOBILE_MENU_STYLES.light.button
             }`}
@@ -285,7 +290,7 @@ export function Navbar() {
             {mobileMenuOpen ? (
               <X
                 className={`h-4 w-4 ${
-                  currentTheme === "dark"
+                  resolvedTheme === "dark"
                     ? "text-white"
                     : isScrolled
                     ? "text-gray-800"
@@ -295,7 +300,7 @@ export function Navbar() {
             ) : (
               <Menu
                 className={`h-4 w-4 ${
-                  currentTheme === "dark"
+                  resolvedTheme === "dark"
                     ? "text-white"
                     : isScrolled
                     ? "text-gray-800"
@@ -316,7 +321,7 @@ export function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             className={`md:hidden fixed top-[calc(var(--navbar-height,4rem)+1px)] left-0 w-full shadow-lg ${
-              currentTheme === "dark"
+              resolvedTheme === "dark"
                 ? MOBILE_MENU_STYLES.dark.menu
                 : MOBILE_MENU_STYLES.light.menu
             }`}
@@ -333,7 +338,7 @@ export function Navbar() {
                     href={href}
                     onClick={(e) => handleNavigation(e, href)}
                     className={`block px-4 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-200 ${
-                      currentTheme === "dark"
+                      resolvedTheme === "dark"
                         ? `text-gray-200 hover:text-white ${
                             activeLink === href
                               ? "bg-white/15 backdrop-blur-sm"

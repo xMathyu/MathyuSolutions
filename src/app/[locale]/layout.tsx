@@ -37,7 +37,13 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.variable}`}>
-        <ThemeProvider attribute="class">
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="system" 
+          enableSystem={true}
+          disableTransitionOnChange={false}
+          storageKey="mathyu-theme"
+        >
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navbar />
             {children}
