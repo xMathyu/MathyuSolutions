@@ -70,7 +70,7 @@ const MOBILE_MENU_STYLES = {
 };
 
 export function Navbar() {
-  const { setTheme, theme: currentTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { poppins } from "./fonts";
-// @ts-ignore
 import "./globals.css";
 
 import "@radix-ui/themes/styles.css";
