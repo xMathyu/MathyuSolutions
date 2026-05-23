@@ -7,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
   AnimatePresence,
+  type Variants,
 } from "framer-motion";
 import { Menu } from "@headlessui/react";
 import { ChevronDown, Check, Loader2 } from "lucide-react";
@@ -53,13 +54,13 @@ export function LanguageSwitcher() {
   };
 
   // Variantes de Animación
-  const buttonHoverTapVariants = {
+  const buttonHoverTapVariants: Variants = {
     rest: { scale: 1 },
     hover: { scale: 1.03 },
     tap: { scale: 0.97 },
   };
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: -10 },
     visible: {
       opacity: 1,
@@ -75,7 +76,7 @@ export function LanguageSwitcher() {
     },
   };
 
-  const menuItemVariants = {
+  const menuItemVariants: Variants = {
     hidden: { opacity: 0, x: -15 },
     visible: { opacity: 1, x: 0 },
   };
